@@ -1,42 +1,44 @@
 # Shelby's postgresql and python adventure
+
+## Creating the postgres database
  
-## Command for creating a service to startup postgres
+### Command for creating a service to startup postgres
 ```
 pg_ctl -D /usr/local/var/postgres start && brew services start postgresql
 ```
 
-## Command for starting postgres once
+### Command for starting postgres once
 ```
 pg_ctl -D /usr/local/var/postgres start
 ```
  
-## psql command line
+### Psql command line
 ```
 psql postgres
 ```
  
-## create a new role
+### Create a new role
 ```
 CREATE ROLE bob WITH LOGIN PASSWORD 'password';
 ALTER ROLE bob CREATEDB;
 ```
  
-## Sign in as unpriv user
+### Sign in as unpriv user
 ```
 psql postgres -U bob;
 ```
  
-## create database
+### Create database
 ```
 CREATE DATABASE gromet;
 ```
  
-## add at least one user who has permission to access the database (aside from the super users, who can access everything)
+### add at least one user who has permission to access the database (aside from the super users, who can access everything)
 ```
 GRANT ALL PRIVILEGES ON DATABASE gromet TO bob;
 ```
  
-## login to gromet
+### login to gromet
 ```
 \connect gromet;
 ```
@@ -62,4 +64,23 @@ GRANT ALL PRIVILEGES ON DATABASE gromet TO bob;
 * pg_dumpall: dumps all databases to a file
  
 
+## Commandline Opening up Existing DB
 
+### Command for starting postgres once
+```
+pg_ctl -D /usr/local/var/postgres start
+```
+ 
+### Psql command line
+```
+psql postgres
+```
+### Sign in as unpriv user
+```
+psql postgres -U bob;
+```
+
+### login to gromet
+```
+\connect gromet;
+```
