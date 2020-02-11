@@ -4,41 +4,42 @@ import psycopg2
 from config import config
  
 def create_tables():
-    """ create tables in the PostgreSQL database"""
+    """ create tables in the Gromet database"""
     commands = (
         """
-        CREATE TABLE plants (
-            plant_id SERIAL PRIMARY KEY,
-            plant_type VARCHAR(255) NOT NULL,
-            plant_nickname VARCHAR(100),
-            user_id INTEGER NOT NULL,
-            FOREIGN KEY (user_id)
-            REFERENCES user (user_id)
-            ON UPDATE CASCADE ON DELETE CASCADE
+        CREATE TABLE plant_care_info (
+            type_id VARCHAR(255) PRIMARY KEY,
+            description VARCHAR(255) NOT NULL
         )
         """,
         """ 
-        CREATE TABLE user (
-                user_id SERIAL PRIMARY KEY,
-                user_password VARCHAR(255) NOT NULL
-                )
+        CREATE TABLE users (
+            user_id VARCHAR(255) PRIMARY KEY,
+            password VARCHAR(255) NOT NULL
+        )
         """,
         """
-        CREATE TABLE plant_care_info (
-                plant_type VARCHAR(25) PRIMARY KEY,
-                description VARCHAR(255) NOT NULL
+        CREATE TABLE plants (
+            plant_id SERIAL PRIMARY KEY,
+            nickname VARCHAR(255),
+            type_id VARCHAR(255) NOT NULL,
+            user_id VARCHAR(255) NOT NULL,
+            FOREIGN KEY (type_id)
+                REFERENCES plant_care_info (type_id),
+            FOREIGN KEY (user_id)
+                REFERENCES users (user_id)
+                ON UPDATE CASCADE ON DELETE CASCADE
         )
         """,
         """
         CREATE TABLE plant_history (
-                plant_id INTEGER NOT NULL,
-                record_id SERIAL,
-                humidity_measurement_percent smallint NOT NULL,
-                time_recorded TIMESTAMPTZ NOT NULL,
-                PRIMARY KEY (plant_id, record_id),
-                FOREIGN KEY (plant_id)
-                    REFERENCES plants (plant_id)
-                    ON UPDATE CASCADE ON DELETE CASCADE,
+            record_id SERIAL PRIMARY KEY,
+            plant_id INTEGER NOT NULL,
+            humidity_measurement_percent smallint,
+            time_recorded TIMESTAMPTZ NOT NULL,
+            FOREIGN KEY (plant_id)
+                REFERENCES plants (plant_id)
+                ON UPDATE CASCADE ON DELETE CASCADE
         )
         """)
     conn = None

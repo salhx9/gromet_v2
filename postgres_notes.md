@@ -84,3 +84,43 @@ psql postgres -U bob;
 ```
 \connect gromet;
 ```
+
+## Normalization Review
+
+### Primary Key
+* A primary key cannot be NULL
+* A primary key value must be unique
+* The primary key values should rarely be changed
+* The primary key must be given a value when a new record is inserted.
+
+### Foreign Key references the primary key of another Table! It helps connect your Tables
+* A foreign key can have a different name from its primary key
+* It ensures rows in one table have corresponding rows in another
+* Unlike the Primary key, they do not have to be unique. Most often they aren't
+* Foreign keys can be null even though primary keys can not 
+* You will only be able to insert values into your foreign key that exist in the unique key in the parent table. This helps in referential integrity.
+
+### 1NF (First Normal Form) Rules
+* Each table cell should contain a single value.
+* Each record needs to be unique.
+
+### 2NF (Second Normal Form) Rules
+* Rule 1- Be in 1NF
+* Rule 2- Single Column Primary Key
+
+### 3NF (Third Normal Form) Rules
+* Rule 1- Be in 2NF
+* Rule 2- Has no transitive functional dependencies
+
+### Transitive functional dependency 
+* is when changing a non-key column, might cause any of the other non-key columns to change
+
+### 3.5NF Boyce-Codd Normal Form (BCNF)
+* Even when a database is in 3rd Normal Form, still there would be anomalies resulted if it has more than one Candidate Key.
+
+
+### 4NF (Fourth Normal Form) Rules
+* If no database table instance contains two or more, independent and multivalued data describing the relevant entity, then it is in 4th Normal Form.
+
+### 5NF (Fifth Normal Form) Rules
+* A table is in 5th Normal Form only if it is in 4NF and it cannot be decomposed into any number of smaller tables without loss of data.
