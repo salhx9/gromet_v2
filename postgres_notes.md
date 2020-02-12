@@ -124,3 +124,10 @@ psql postgres -U bob;
 
 ### 5NF (Fifth Normal Form) Rules
 * A table is in 5th Normal Form only if it is in 4NF and it cannot be decomposed into any number of smaller tables without loss of data.
+
+
+## TODOs:
+
+* Updating table data
+* maybe add gui
+* add queries to a python script for the demo of the tables.

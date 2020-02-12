@@ -57,7 +57,9 @@ if __name__ == '__main__':
     # insert multiple plants,
     insert_plants_list([
         ('Snake Plant','Bobby Sue','ryon'),
-        ('Heartleaf Philodendon','Salem','sabrina'),
+        ('Heartleaf Philodendron','Salem','sabrina'),
         ('Aloe Vera','Adele','katie'),
         ('Succulent','','katie'),
+        ('Succulent','Caleb','jacob'),
+        ('Succulent','Hannah','jacob')
     ])

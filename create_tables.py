@@ -35,7 +35,7 @@ def create_tables():
         CREATE TABLE plant_history (
             record_id SERIAL PRIMARY KEY,
             plant_id INTEGER NOT NULL,
-            humidity_measurement_percent smallint,
+            humidity decimal(4,3),
             time_recorded TIMESTAMPTZ NOT NULL,
             FOREIGN KEY (plant_id)
                 REFERENCES plants (plant_id)
