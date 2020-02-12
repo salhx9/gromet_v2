@@ -1,0 +1,40 @@
+@startuml
+
+
+object plants {
+    **plant_id** SERIAL PK,
+    nickname VARCHAR(255),
+    type_id VARCHAR(255) NOT NULL,
+    user_id VARCHAR(255) NOT NULL,
+    FK (type_id)
+    FK (user_id)
+}
+
+object users {
+    **user_id** VARCHAR(255) PK,
+    password VARCHAR(255) NOT NULL
+}
+
+object plant_care_info {
+    **type_id** VARCHAR(255) PK,
+    description VARCHAR(255) NOT NULL
+}
+
+object plant_history {
+    **record_id** SERIAL PK,
+    plant_id INTEGER NOT NULL
+    humidity decimal(4,3),
+    time_recorded TIMESTAMPTZ NOT NULL,
+    FK (plant_id)
+}
+
+object key {
+    PK = primary key
+    FK = foreign key
+}
+
+plants }--  users : M:1
+plants }-- plant_care_info : M:1
+plants --{ plant_history : 1:M
+
+@enduml

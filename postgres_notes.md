@@ -131,6 +131,7 @@ psql postgres -U bob;
 Required:
 * comb through requirements again
 * Updating table data
+* update plants is also not done
 * Update plant nickname
 * add queries to a python script for the demo of the tables.
 
