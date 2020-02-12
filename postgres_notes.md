@@ -128,6 +128,12 @@ psql postgres -U bob;
 
 ## TODOs:
 
+Required:
+* comb through requirements again
 * Updating table data
-* maybe add gui
+* Update plant nickname
 * add queries to a python script for the demo of the tables.
+
+Optional:
+* learn to use pgAdmin
+* get a gui going
