@@ -1,5 +1,10 @@
 # Shelby's postgresql and python adventure
 
+## Dependencies
+1. Install postgres.
+2. Make sure you have python3 installed.
+3. Use Python's package manager to install psycopg2 for using postgres within the python scripts.
+
 ## Creating the postgres database
  
 ### Command for creating a service to startup postgres
@@ -85,7 +90,19 @@ psql postgres -U bob;
 \connect gromet;
 ```
 
+## Initializing the Database
+1. Run the create_tables.py script to create the tables in the database.
+2. Run insert_user.py to create users in the users table.
+3. Run insert_plant_care_info.py to create a dictionary of plant types and their care descriptions.
+4. Run insert_plants.py to insert plants associated with specific users.
+5. Run insert_plant_history.py to insert humidity readings into the plant_history table for the plants in the plant table.
+6. Test out some queries on each of the tables. To see the contents of a table use:
+``` 
+SELECT * FROM table_name;
+```
+
 ## Normalization Review
+This is unrelated to setup but helpful for designing the schema
 
 ### Primary Key
 * A primary key cannot be NULL
@@ -118,23 +135,8 @@ psql postgres -U bob;
 ### 3.5NF Boyce-Codd Normal Form (BCNF)
 * Even when a database is in 3rd Normal Form, still there would be anomalies resulted if it has more than one Candidate Key.
 
-
 ### 4NF (Fourth Normal Form) Rules
-* If no database table instance contains two or more, independent and multivalued data describing the relevant entity, then it is in 4th Normal Form.
+* If no database table instance contains two or more independent and multivalued data describing the relevant entity, then it is in 4th Normal Form.
 
 ### 5NF (Fifth Normal Form) Rules
 * A table is in 5th Normal Form only if it is in 4NF and it cannot be decomposed into any number of smaller tables without loss of data.
-
-
-## TODOs:
-
-Required:
-* comb through requirements again
-* Updating table data
-* update plants is also not done
-* Update plant nickname
-* add queries to a python script for the demo of the tables.
-
-Optional:
-* learn to use pgAdmin
-* get a gui going

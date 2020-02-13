@@ -4,10 +4,10 @@ import psycopg2
 from config import config
  
  
-def update_plant(plant_id, plant_name):
+def update_plant_nickname(new_nickname,plant_id):
     """ update plant name based on the plant id """
     sql = """ UPDATE plants
-                SET plant_name = %s
+                SET nickname = %s
                 WHERE plant_id = %s"""
     conn = None
     updated_rows = 0
@@ -19,7 +19,7 @@ def update_plant(plant_id, plant_name):
         # create a new cursor
         cur = conn.cursor()
         # execute the UPDATE  statement
-        cur.execute(sql, (plant_name, plant_id))
+        cur.execute(sql, (new_nickname,plant_id))
         # get the number of updated rows
         updated_rows = cur.rowcount
         # Commit the changes to the database
@@ -33,3 +33,6 @@ def update_plant(plant_id, plant_name):
             conn.close()
  
     return updated_rows
+
+if __name__ == '__main__':
+    update_plant_nickname('Severus',2)
