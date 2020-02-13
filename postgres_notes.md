@@ -1,4 +1,4 @@
-# Shelby's postgresql and python adventure
+# Shelby's Postgresql and Python Adventure
 
 ## Dependencies
 1. Install postgres.
@@ -28,7 +28,7 @@ CREATE ROLE bob WITH LOGIN PASSWORD 'password';
 ALTER ROLE bob CREATEDB;
 ```
  
-### Sign in as unpriv user
+### Sign in as the new user
 ```
 psql postgres -U bob;
 ```
@@ -38,7 +38,7 @@ psql postgres -U bob;
 CREATE DATABASE gromet;
 ```
  
-### add at least one user who has permission to access the database (aside from the super users, who can access everything)
+### Add at least one user who has permission to access the database (aside from the super users, who can access everything)
 ```
 GRANT ALL PRIVILEGES ON DATABASE gromet TO bob;
 ```
@@ -69,7 +69,7 @@ GRANT ALL PRIVILEGES ON DATABASE gromet TO bob;
 * pg_dumpall: dumps all databases to a file
  
 
-## Commandline Opening up Existing DB
+## Opening up Existing DB
 
 ### Command for starting postgres once
 ```
