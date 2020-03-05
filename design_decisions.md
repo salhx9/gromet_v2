@@ -75,9 +75,19 @@ With the amount of time I had, I was unable to create an acceptable gui for view
 
 ## Queries for Information I would have used in Gromet_v1;
 
+### Count how many plants each user has.
+```
+select user_id, COUNT(plant_id) from plants group by user_id;
+```
+
 ### Display the timestamp and humidity from a specific plant.
 ```
 select time_recorded, humidity from plant_history where plant_id = 6;
+```
+
+### reorder the plant_history table ordered by plant_id
+```
+select plant_id, time_recorded, humidity from plant_history order by plant_id desc;
 ```
 
 ### Display the user_id associated with each plant in plant_history.

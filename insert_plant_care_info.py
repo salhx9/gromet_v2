@@ -56,6 +56,6 @@ if __name__ == '__main__':
     # insert multiple plant_care_info,
     insert_plant_care_info_list([
         ('Snake Plant','Tolerates low light and little water. Let soil dry fully between waterings.',),
-        ('Heartleaf Philodendon','This little philodendron thrives under fluorescent lights, making it a popular office plant.',),
+        ('Heartleaf Philodendron','This little philodendron thrives under fluorescent lights, making it a popular office plant.',),
         ('Aloe Vera','Favors bright light and temps around 65 - 75°F. Keep soil moderately dry.',),
     ])
